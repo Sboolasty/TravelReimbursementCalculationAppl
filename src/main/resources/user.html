@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Reimbursement Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .form-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    select,
+    input[type="number"],
+    input[type="date"],
+    button {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-top: 5px;
+    }
+    button {
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+    output {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="form-container">
+  <h2>User Reimbursement Form</h2>
+  <form id="reimbursementForm">
+    <div class="form-group">
+      <label for="tripDate">Trip Date:</label>
+      <input type="date" id="tripDate" name="tripDate">
+    </div>
+    <div class="form-group">
+      <label for="receipts">Select Receipts:</label>
+      <select multiple id="receipts" name="receipts">
+        <option value="taxi">Taxi</option>
+        <option value="hotel">Hotel</option>
+        <option value="planeTicket">Plane Ticket</option>
+        <option value="train">Train</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="days">Number of Days:</label>
+      <input type="number" id="days" name="days">
+    </div>
+    <div class="form-group">
+      <label for="disableDays">Disable Reimbursement on Specific Days:</label>
+      <input type="checkbox" id="disableDays" name="disableDays">
+    </div>
+    <div class="form-group">
+      <label for="distance">Driven Distance (in km):</label>
+      <input type="number" id="distance" name="distance">
+    </div>
+    <div class="form-group">
+      <label>Total Reimbursement Amount:</label>
+      <output id="totalAmount"></output>
+    </div>
+    <button type="submit">Submit Claim</button>
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrator Panel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .form-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    select,
+    input[type="number"],
+    input[type="text"],
+    button[type="submit"],
+    button[type="button"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-top: 5px;
+    }
+    button[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+    button[type="button"] {
+      background-color: #28a745;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<div class="form-container">
+  <h2>Administrator Panel</h2>
+  <form id="adminForm">
+    <div class="form-group">
+      <label for="dailyAllowanceRate">Daily Allowance Rate ($):</label>
+      <input type="number" id="dailyAllowanceRate" name="dailyAllowanceRate" value="15">
+    </div>
+    <div class="form-group">
+      <label for="mileageRate">Mileage Rate ($/km):</label>
+      <input type="number" step="0.01" id="mileageRate" name="mileageRate" value="0.3">
+    </div>
+    <div class="form-group">
+      <label for="receiptTypes">Available Receipt Types:</label>
+      <select multiple id="receiptTypes" name="receiptTypes">
+        <option value="taxi">Taxi</option>
+        <option value="hotel">Hotel</option>
+        <option value="planeTicket">Plane Ticket</option>
+        <option value="train">Train</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="newReceiptType">Add New Receipt Type:</label>
+      <input type="text" id="newReceiptType" name="newReceiptType">
+      <button type="button" onclick="addReceiptType()">Add</button>
+    </div>
+    <button type="submit">Save Changes</button>
+  </form>
+</div>
+<script>
+  function addReceiptType() {
+    const newReceiptType = document.getElementById('newReceiptType').value;
+    if (newReceiptType) {
+      const select = document.getElementById('receiptTypes');
+      const option = document.createElement('option');
+      option.value = newReceiptType;
+      option.text = newReceiptType;
+      select.appendChild(option);
+      document.getElementById('newReceiptType').value = '';
+    }
+  }
+</script>
+</body>
+</html>
